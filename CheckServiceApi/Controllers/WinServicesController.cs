@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using CheckServiceApi.Model;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -21,9 +23,9 @@ namespace CheckServiceApi.Controllers
         }
         // GET: api/<WinServicesController>
         [HttpGet]
-        public IEnumerable<WinServiceModel> Get()
-        {
-            return _IWinServiceClass.GetCamstarServices();
+        public JsonResult Get()
+        {   
+            return new JsonResult(_IWinServiceClass.GetCamstarServices().ToList());
         }
 
         // GET api/<WinServicesController>/5

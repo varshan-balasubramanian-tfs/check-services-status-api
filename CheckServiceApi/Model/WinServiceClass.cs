@@ -57,13 +57,16 @@ namespace CheckServiceApi.Model
                     {
                         _camServices = ServiceController.GetServices(_serverName).Where(x => x.DisplayName.StartsWith("Camstar")).ToList();
                     }
+
+                    ;
+                    
                     foreach (ServiceController _camService in _camServices)
                     {
                         WinServiceModel serviceModel = new WinServiceModel()
                         {
                             ServerName = _camService.MachineName.ToString(),
-                            ServiceDisplayName = _camService.DisplayName.ToString(),
-                            ServiceName = _camService.ServiceName.ToString(),
+                            ServiceDisplayName = _camService.DisplayName,
+                            ServiceName = _camService.ServiceName,
                             ServiceStatus = _camService.Status.ToString()
                         };
                         _serviceDetailsList.Add(serviceModel);

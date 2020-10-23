@@ -7,9 +7,17 @@ namespace CheckServiceApi.Model
 {
     public class WinServiceModel
     {
+        public string ServerName { get; set; }
         public string ServiceName { get; set; }
         public string ServiceDisplayName { get; set; }
         public string ServiceStatus { get; set; }
+    }
+
+    public class ServiceDetailModel
+    {
         public string ServerName { get; set; }
+        public string ServiceName { get; set; }
+        public string ServiceDisplayName { get; set; }
+        public string ServiceStatus { get; set; }
     }
 }
